@@ -1,6 +1,5 @@
 import 'package:bart/bart.dart';
 import 'package:dyhtg_2025/fake_page.dart';
-import 'package:dyhtg_2025/modules/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,10 +42,22 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffEB4335)),
+      ),
+      darkTheme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xffEB4335),
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: BartScaffold(
         routesBuilder:
             subRoutes, // add a reference to the subRoutes list you created before
-        bottomBar: BartBottomBar.adaptive(), // add the bottom bar (see below for other options)
+        bottomBar:
+            BartBottomBar.adaptive(), // add the bottom bar (see below for other options)
       ),
     );
   }
