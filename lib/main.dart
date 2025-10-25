@@ -1,9 +1,14 @@
 import 'package:bart/bart.dart';
+import 'package:dyhtg_2025/env.dart';
 import 'package:dyhtg_2025/fake_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() {
+  final env = Environment.fromEnv();
+  Supabase.initialize(url: env.backendUrl, anonKey: env.supabaseToken);
+
   runApp(ProviderScope(child: const MainApp()));
 }
 
